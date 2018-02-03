@@ -1,4 +1,4 @@
-module NinetyNine
+module NinetyEight
   class Solver
     def initialize(cards, board)
       @cards = cards

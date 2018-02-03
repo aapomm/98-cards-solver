@@ -13,7 +13,7 @@ board = {
 
 # Available cards
 cards = []
-i_handler = NinetyNine::InputHandler.new(cards)
+i_handler = NinetyEight::InputHandler.new(cards)
 
 # Initial cards
 # Input: card numbers separated by space
@@ -21,7 +21,7 @@ i_handler = NinetyNine::InputHandler.new(cards)
 print 'Input initial cards: '
 i_handler.initial_cards
 
-solver = NinetyNine::Solver.new(cards, board)
+solver = NinetyEight::Solver.new(cards, board)
 
 loop do
   # Solve and answer

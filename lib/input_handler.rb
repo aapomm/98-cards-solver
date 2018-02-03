@@ -1,4 +1,4 @@
-module NinetyNine
+module NinetyEight
   class InputHandler
     def initialize(cards)
       @cards = cards
@@ -11,7 +11,7 @@ module NinetyNine
 
     # Perform a move on the board
     # Execute the default arg when the user inputs an empty value 
-    # default is of the format of NinetyNine::Solver.solve output
+    # default is of the format of NinetyEight::Solver.solve output
     def move(board, default = [])
       loop do
         print "Move: "

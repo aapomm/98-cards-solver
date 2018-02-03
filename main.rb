@@ -44,7 +44,7 @@ loop do
   puts 'Current cards:'
   puts cards.join(' ')
 
-  if cards.size == 6
+  if cards.size <= 6
     print 'Draw 2 cards: '
     # Draw 2 cards
     # Input: <card1> <card2>

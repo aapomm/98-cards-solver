@@ -13,20 +13,32 @@ module NinetyNine
     # Execute the default arg when the user inputs an empty value 
     # default is of the format of NinetyNine::Solver.solve output
     def move(board, default = [])
-      print "Move: "
-      num, pos = gets.chomp.split(' ')
+      loop do
+        print "Move: "
+        num, pos = gets.chomp.split(' ')
 
-      if !num || !pos
-        num = default[0]
-        pos = default[1].to_s
+        if !num || !pos
+          num = default[0]
+          pos = default[1].to_s
+        end
+
+        next if !num || !pos
+
+        board[pos.to_sym] << num.to_i
+        @cards.delete(num.to_i)
+
+        break
       end
-
-      board[pos.to_sym] << num.to_i
-      @cards.delete(num.to_i)
     end
 
     def draw
-      (@cards << cards_input).flatten!
+      loop do
+        drawn = cards_input
+        next if drawn.size < 2
+
+        (@cards << drawn).flatten!
+        break
+      end
     end
 
     private

@@ -4,14 +4,23 @@ module NinetyNine
       @cards = cards
     end
 
-    # We use << here to update the reference instead of value
     def initial_cards
+      # We use << here to update the reference instead of value
       (@cards << cards_input).flatten!
     end
 
-    def move(board)
+    # Perform a move on the board
+    # Execute the default arg when the user inputs an empty value 
+    # default is of the format of NinetyNine::Solver.solve output
+    def move(board, default = [])
       print "Move: "
       num, pos = gets.chomp.split(' ')
+
+      if !num || !pos
+        num = default[0]
+        pos = default[1].to_s
+      end
+
       board[pos.to_sym] << num.to_i
       @cards.delete(num.to_i)
     end

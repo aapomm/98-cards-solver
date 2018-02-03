@@ -36,14 +36,10 @@ module NinetyNine
         end
       end
 
-      output(min)
+      min
     end
 
     private
-
-    def output(min)
-      puts "Move #{min[0]} to #{min[1]} (diff: #{min[2]})"
-    end
 
     def variance
       @variance ||=

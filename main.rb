@@ -23,24 +23,17 @@ i_handler.initial_cards
 
 solver = NinetyNine::Solver.new(cards, board)
 
-loop do 
+loop do
   # Solve and answer
-  puts "Answer:"
-  puts solver.solve
+  print "Answer: "
+  ans = solver.solve
+  puts "Move #{ans[0]} to #{ans[1]} (diff: #{ans[2]})"
 
   puts 'Input move'
   # Add to the board
   # Input: <card> <u/d><0/1>
   # Ex: 3 u0
-  i_handler.move(board)
-
-  if cards.size == 6
-    print 'Draw 2 cards: '
-    # Draw 2 cards
-    # Input: <card1> <card2>
-    # Ex: 43 90
-    i_handler.draw
-  end
+  i_handler.move(board, ans)
 
   puts 'Board state:'
   puts board[:u0].join(' ')
@@ -50,5 +43,14 @@ loop do
 
   puts 'Current cards:'
   puts cards.join(' ')
+
+  if cards.size == 6
+    print 'Draw 2 cards: '
+    # Draw 2 cards
+    # Input: <card1> <card2>
+    # Ex: 43 90
+    i_handler.draw
+  end
+
   puts
 end
